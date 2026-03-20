@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import img1 from "../asset/img1.jpeg";
 
 export default function Home() {
   return (
@@ -64,7 +65,7 @@ export default function Home() {
         
         {/* Profile Image */}
         <img
-          src="src/asset/img1.jpeg"
+          src={img1}
           alt="Profile"
           className="relative z-10 w-full h-auto aspect-[4/5] object-cover rounded-[2.5rem] shadow-2xl border-4 border-white dark:border-card"
           referrerPolicy="no-referrer"

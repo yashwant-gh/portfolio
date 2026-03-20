@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Briefcase, GraduationCap, Award, FileText, Calendar, Code, Globe, Terminal, Cpu, ExternalLink, Zap, BadgeCheck } from 'lucide-react';
+import img2 from "../asset/img2.jpeg";
+import img3 from "../asset/img3.jpeg";
+import img4 from "../asset/img4.jpeg";
 
 const experiences = [
   {
@@ -147,7 +150,7 @@ export default function About() {
           className="md:col-span-1 relative rounded-[2.5rem] overflow-hidden group min-h-[300px] border border-border"
         >
           <img 
-            src="src/asset/img2.jpeg" 
+            src={img2}
             alt="Portrait" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 
@@ -170,7 +173,7 @@ export default function About() {
           className="md:col-span-1 relative rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden group border border-primary/20"
         >
           <img 
-            src="src/asset/img4.jpeg" 
+            src={img4} 
             alt="Coding" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 
@@ -193,7 +196,7 @@ export default function About() {
           className="md:col-span-1 relative rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden group border border-secondary/20"
         >
           <img 
-            src="src/asset/img3.jpeg" 
+            src={img3}
             alt="Network" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 

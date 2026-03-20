@@ -30,7 +30,7 @@ export default function Contact() {
             </div>
             <div>
               <h3 className="font-bold text-lg text-foreground">Email</h3>
-              <p className="text-foreground/70">yashwantkaushik2003@google.com</p>
+              <p className="text-foreground/70">yashwantkaushik2003@gmail.com</p>
             </div>
           </div>
 

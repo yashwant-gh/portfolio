@@ -4,7 +4,6 @@ import { Briefcase, GraduationCap, Award, FileText, Calendar, Code, Globe, Termi
 import img2 from "../asset/img2.jpeg";
 import img3 from "../asset/img3.jpeg";
 import img4 from "../asset/img4.jpeg";
-
 const experiences = [
   {
     title: "AI Trainer Specialist",
@@ -12,6 +11,7 @@ const experiences = [
     date: "2025 - 2026",
     description: "Worked on improving AI behavior by simulating real user tasks across tools like browsers, editors, and productivity apps. Focused on breaking down tasks clearly and helping AI learn how to interact more naturally and effectively.",
     icon: Terminal,
+    logo: "https://ui-avatars.com/api/?name=SoftAge+Information&background=0ea5e9&color=fff&size=128&font-size=0.4&bold=true",
     color: "primary"
   },
   {
@@ -20,6 +20,7 @@ const experiences = [
     date: "2026 - Present",
     description: "Working on LLM evaluation pipelines using CLI-based workflows across multiple GitHub repositories. Contributing through pull requests, debugging failures, and improving test cases, primarily on Anthropic AI projects.",
     icon: Code,
+    logo: "https://ui-avatars.com/api/?name=AirDawg+Labs&background=8b5cf6&color=fff&size=128&font-size=0.4&bold=true",
     color: "secondary"
   }
 ];
@@ -59,9 +60,23 @@ const certificates = [
 ];
 
 const skills = [
-  "React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", 
-  "Node.js", "Express", "Python", "PostgreSQL", "MongoDB", 
-  "Git", "Docker", "AWS", "Figma", "GraphQL", "REST APIs", "Redux"
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "TypeScript", icon: "ts" },
+  { name: "JavaScript", icon: "js" },
+  { name: "Tailwind CSS", icon: "tailwind" },
+  { name: "Node.js", icon: "nodejs" },
+  { name: "Express", icon: "express" },
+  { name: "Python", icon: "python" },
+  { name: "PostgreSQL", icon: "postgres" },
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "Git", icon: "git" },
+  { name: "Docker", icon: "docker" },
+  { name: "AWS", icon: "aws" },
+  { name: "Figma", icon: "figma" },
+  { name: "GraphQL", icon: "graphql" },
+  { name: "REST APIs", icon: "postman" },
+  { name: "Redux", icon: "redux" }
 ];
 
 const hoverColors = [
@@ -74,7 +89,7 @@ const hoverColors = [
   { border: 'hover:border-fuchsia-500/50', bg: 'hover:bg-fuchsia-500/5', shadow: 'hover:shadow-fuchsia-500/10', text: 'group-hover:text-fuchsia-500', dot: 'group-hover:bg-fuchsia-500' },
 ];
 
-const TimelineCard = ({ title, subtitle, date, description, icon: Icon, color }: any) => {
+const TimelineCard = ({ title, subtitle, company, institution, date, description, icon: Icon, logo, color }: any) => {
   const colorMap: Record<string, string> = {
     primary: "text-primary bg-primary/10 border-primary/20 hover:border-primary/50",
     secondary: "text-secondary bg-secondary/10 border-secondary/20 hover:border-secondary/50",
@@ -87,6 +102,8 @@ const TimelineCard = ({ title, subtitle, date, description, icon: Icon, color }:
     accent: "text-accent",
   };
 
+  const displaySubtitle = subtitle || company || institution;
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -96,12 +113,20 @@ const TimelineCard = ({ title, subtitle, date, description, icon: Icon, color }:
     >
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6 relative z-10">
         <div className="flex items-start gap-4">
-          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${colorMap[color].split(' ')[1]} ${textMap[color]}`}>
-            <Icon size={24} />
-          </div>
+          {logo ? (
+            <div className="w-12 h-12 rounded-2xl overflow-hidden shrink-0 border border-border/50 bg-background">
+              <img src={logo} alt={`${displaySubtitle} logo`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            </div>
+          ) : (
+            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${colorMap[color].split(' ')[1]} ${textMap[color]}`}>
+              {Icon && <Icon size={24} />}
+            </div>
+          )}
           <div>
             <h4 className="text-xl md:text-2xl font-bold text-foreground mb-1">{title}</h4>
-            <p className={`text-base md:text-lg font-semibold ${textMap[color]}`}>{subtitle}</p>
+            {displaySubtitle && (
+              <p className={`text-base md:text-lg font-semibold ${textMap[color]}`}>{displaySubtitle}</p>
+            )}
           </div>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 backdrop-blur-sm text-foreground/80 text-sm font-semibold shrink-0 border border-border/50">
@@ -173,7 +198,7 @@ export default function About() {
           className="md:col-span-1 relative rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden group border border-primary/20"
         >
           <img 
-            src={img4} 
+            src={img4}
             alt="Coding" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 
@@ -268,7 +293,7 @@ export default function About() {
             const color = hoverColors[i % hoverColors.length];
             return (
             <motion.div
-              key={skill}
+              key={skill.name}
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
@@ -276,8 +301,8 @@ export default function About() {
               whileHover={{ scale: 1.05, y: -5 }}
               className={`px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-card border border-border transition-all cursor-default flex items-center gap-3 group hover:shadow-lg ${color.border} ${color.bg} ${color.shadow}`}
             >
-              <div className={`w-2 h-2 rounded-full bg-foreground/20 transition-colors ${color.dot}`}></div>
-              <span className={`text-base md:text-lg font-bold text-foreground/80 transition-colors ${color.text}`}>{skill}</span>
+              <img src={`https://skillicons.dev/icons?i=${skill.icon}`} alt={skill.name} className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:scale-110" referrerPolicy="no-referrer" />
+              <span className={`text-base md:text-lg font-bold text-foreground/80 transition-colors ${color.text}`}>{skill.name}</span>
             </motion.div>
           )})}
         </div>

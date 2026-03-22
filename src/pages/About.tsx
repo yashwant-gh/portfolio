@@ -4,6 +4,8 @@ import { Briefcase, GraduationCap, Award, FileText, Calendar, Code, Globe, Termi
 import img2 from "../asset/img2.jpeg";
 import img3 from "../asset/img3.jpeg";
 import img4 from "../asset/img4.jpeg";
+import airdawg from "../asset/airdawg.jpg";
+import softage from "../asset/softage.jpg";
 const experiences = [
   {
     title: "AI Trainer Specialist",
@@ -11,7 +13,7 @@ const experiences = [
     date: "2025 - 2026",
     description: "Worked on improving AI behavior by simulating real user tasks across tools like browsers, editors, and productivity apps. Focused on breaking down tasks clearly and helping AI learn how to interact more naturally and effectively.",
     icon: Terminal,
-    logo: "https://ui-avatars.com/api/?name=SoftAge+Information&background=0ea5e9&color=fff&size=128&font-size=0.4&bold=true",
+    logo: {softage},
     color: "primary"
   },
   {
@@ -20,7 +22,7 @@ const experiences = [
     date: "2026 - Present",
     description: "Working on LLM evaluation pipelines using CLI-based workflows across multiple GitHub repositories. Contributing through pull requests, debugging failures, and improving test cases, primarily on Anthropic AI projects.",
     icon: Code,
-    logo: "https://ui-avatars.com/api/?name=AirDawg+Labs&background=8b5cf6&color=fff&size=128&font-size=0.4&bold=true",
+    logo: {airdawg},
     color: "secondary"
   }
 ];

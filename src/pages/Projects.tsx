@@ -1,35 +1,44 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Github, ArrowUpRight } from 'lucide-react';
+import kalngo from "../asset/kalngoimg.avif";
+import lokyatra from "../asset/lokyatraimg.jpeg";
+import kartly from "../asset/kartlyimg.jpg";
 
 export default function Projects() {
   const projects = [
     {
-      title: 'Sunny Day App',
-      description: 'A beautiful weather application with smooth animations and accurate forecasts. Built with a focus on fluid user experience and real-time data visualization.',
-      image: 'https://picsum.photos/seed/sunny/800/600',
+      title: 'Kalngo Hotel Website',
+      description: 'A modern hotel booking platform with a clean interface, seamless browsing, and efficient data handling for managing listings and user interactions.',
+      image: kalngo,
       tags: ['React', 'Tailwind', 'API'],
       gradient: 'from-blue-600 via-sky-500 to-cyan-400',
       tagClass: 'bg-sky-500/10 text-sky-600 dark:text-sky-300 border-sky-500/20',
       buttonGradient: 'from-blue-600 to-cyan-500',
+      live: 'https://kalngo.vercel.app/',
+      github: 'https://github.com/yashwant-gh/kalngo/',
     },
     {
-      title: 'Pink Blossom',
-      description: 'An elegant e-commerce platform for boutique floral arrangements. Features seamless checkout and stunning product showcases.',
-      image: 'https://picsum.photos/seed/blossom/600/600',
+      title: 'LokYatra',
+      description: 'A clean and intuitive travel platform to explore destinations, plan trips, and access real-world location insights with a smooth user experience.',
+      image: lokyatra,
       tags: ['Next.js', 'Stripe', 'Framer'],
       gradient: 'from-rose-500 via-orange-500 to-amber-500',
       tagClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-300 border-rose-500/20',
       buttonGradient: 'from-rose-500 to-orange-500',
+      live: 'https://lokyatra-travels.vercel.app/',
+      github: 'https://github.com/yashwant-gh/bus-tracker/',
     },
     {
-      title: 'Green Leaf',
-      description: 'A minimalist habit tracker to help you grow your daily routines. Track your progress with beautiful, interactive charts.',
-      image: 'https://picsum.photos/seed/leaf/600/600',
+      title: 'Kartly',
+      description: 'A minimalist ecommerce web app where users can buy and sell quality products.',
+      image: kartly,
       tags: ['Vue', 'Firebase', 'PWA'],
       gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
       tagClass: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border-emerald-500/20',
       buttonGradient: 'from-emerald-500 to-teal-500',
+      live: 'https://github.com/yashwant-gh/kartly/',
+      github: 'https://github.com/yashwant-gh/kartly/',
     },
   ];
 
@@ -56,8 +65,8 @@ export default function Projects() {
             A collection of my recent work, blending vibrant design with robust engineering to create unforgettable digital experiences.
           </p>
         </div>
-        <a href="#" className="hidden md:inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-primary transition-colors group">
-          View all projects 
+        <a href="https://github.com/yashwant-gh/" target="_blank" className="hidden md:inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-primary transition-colors group">
+          View all projects
           <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </a>
       </motion.div>
@@ -78,7 +87,7 @@ export default function Projects() {
 
               {/* Glass Card */}
               <div className={`relative h-full bg-background/90 dark:bg-background/80 backdrop-blur-2xl border border-foreground/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] rounded-2xl overflow-hidden flex flex-col ${isFeatured ? 'p-5 sm:p-6 md:p-8 md:flex-row items-center gap-6 lg:gap-10' : 'p-5 sm:p-6 gap-5'}`}>
-                
+
                 {/* Image Container */}
                 <div className={`relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-foreground/10 ${isFeatured ? 'w-full md:w-1/2 aspect-video' : 'w-full aspect-[2/1]'}`}>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
@@ -88,7 +97,7 @@ export default function Projects() {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                     referrerPolicy="no-referrer"
                   />
-                  
+
                   {/* Floating Colorful Tags */}
                   <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
                     {project.tags.map(tag => (
@@ -107,17 +116,17 @@ export default function Projects() {
                   <h3 className={`font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${project.gradient} tracking-tight ${isFeatured ? 'mb-3 text-3xl lg:text-4xl' : 'mb-2 text-2xl'}`}>
                     {project.title}
                   </h3>
-                  
+
                   <p className={`text-foreground/80 font-medium leading-relaxed ${isFeatured ? 'text-base mb-6' : 'text-sm mb-5'}`}>
                     {project.description}
                   </p>
 
                   <div className={`mt-auto flex items-center justify-between border-t border-foreground/10 ${isFeatured ? 'pt-6' : 'pt-5'}`}>
-                    <a href="#" className={`rounded-xl text-white font-bold bg-gradient-to-r ${project.buttonGradient} shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 text-sm ${isFeatured ? 'px-5 py-2.5' : 'px-4 py-2'}`}>
+                    <a href={project.live} target="_blank" className={`rounded-xl text-white font-bold bg-gradient-to-r ${project.buttonGradient} shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 text-sm ${isFeatured ? 'px-5 py-2.5' : 'px-4 py-2'}`}>
                       View Project <ArrowUpRight className="w-4 h-4" />
                     </a>
-                    
-                    <a href="#" className={`rounded-xl bg-foreground/5 hover:bg-foreground hover:text-background transition-colors duration-300 text-foreground ${isFeatured ? 'p-2.5' : 'p-2'}`}>
+
+                    <a href={project.github} target="_blank" className={`rounded-xl bg-foreground/5 hover:bg-foreground hover:text-background transition-colors duration-300 text-foreground ${isFeatured ? 'p-2.5' : 'p-2'}`}>
                       <Github className="w-5 h-5" />
                     </a>
                   </div>
@@ -127,10 +136,10 @@ export default function Projects() {
           );
         })}
       </div>
-      
+
       <div className="mt-16 text-center md:hidden">
-        <a href="#" className="inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-primary transition-colors group">
-          View all projects 
+        <a href="https://github.com/yashwant-gh/" target="_blank" className="inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-primary transition-colors group">
+          View all projects
           <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </a>
       </div>

@@ -62,11 +62,11 @@ const achievements = [
 ];
 
 const certificates = [
-  { title: "Full Stack Development in React and Node", logo: lpu },
-  { title: "Oracle Cloud Database Services 2025 Certified Professional", logo: oracle },
-  { title: "Deloitte Australia Data Analayst Certificate", logo: deloitte },
-  { title: "Cloud Computing by IIT Kharagpur", logo: iitkgp },
-  { title: "Introduction to Hardware and Operating Systems by IBM", logo: ibm }
+  { title: "Full Stack Development in React and Node", logo: lpu, link: "https://files.lpu.in/umsweb/skilldevcourse/SkillDevelopmentCertificates/12308255_878_14_08_2025.pdf?_gl=1*52qgfs*_gcl_au*NjU1ODIxMTQ1LjE3NTU3ODU3NDUuNzE2MzEyNTY0LjE3NjIyMzY3NDAuMTc2MjIzNjc1NQ.." },
+  { title: "Oracle Cloud Database Services 2025 Certified Professional", logo: oracle, link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=78CED414851FBF35FF65C5E3DB83AA318E55E906DABC19272483B8DD8DFA4059" },
+  { title: "Deloitte Australia Data Analayst Certificate", logo: deloitte, link: "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_D4eFdbqLbgf8pyM83_1760858613629_completion_certificate.pdf" },
+  { title: "Cloud Computing by IIT Kharagpur", logo: iitkgp, link: "https://archive.nptel.ac.in/content/noc/NOC25/SEM1/Ecertificates/106/noc25-cs11/Course/NPTEL25CS11S153730323504257955.pdf" },
+  { title: "Introduction to Hardware and Operating Systems by IBM", logo: ibm, link: "https://coursera.org/verify/007Q4WX2DP9J" }
 ];
 
 const skills = [
@@ -450,7 +450,8 @@ export default function About() {
           <div className="space-y-4">
             {certificates.map((cert, i) => (
               <motion.a 
-                href="#"
+                href={cert.link}
+                target="_blank"
                 key={i}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}

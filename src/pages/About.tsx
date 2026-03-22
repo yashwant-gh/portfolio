@@ -4,8 +4,14 @@ import { Briefcase, GraduationCap, Award, FileText, Calendar, Code, Globe, Termi
 import img2 from "../asset/img2.jpeg";
 import img3 from "../asset/img3.jpeg";
 import img4 from "../asset/img4.jpeg";
+import lpu from "../asset/lpu.png";
+import psbb from "../asset/psbb.jpeg";
 import airdawg from "../asset/airdawg.jpg";
 import softage from "../asset/softage.jpg";
+import oracle from "../asset/oracle.jpg";
+import deloitte from "../asset/deloitte.png";
+import iitkgp from "../asset/iitkgp.jpeg";
+import ibm from "../asset/ibm.png";
 const experiences = [
   {
     title: "AI Trainer Specialist",
@@ -13,7 +19,7 @@ const experiences = [
     date: "2025 - 2026",
     description: "Worked on improving AI behavior by simulating real user tasks across tools like browsers, editors, and productivity apps. Focused on breaking down tasks clearly and helping AI learn how to interact more naturally and effectively.",
     icon: Terminal,
-    logo: {softage},
+    logo: softage,
     color: "primary"
   },
   {
@@ -22,7 +28,7 @@ const experiences = [
     date: "2026 - Present",
     description: "Working on LLM evaluation pipelines using CLI-based workflows across multiple GitHub repositories. Contributing through pull requests, debugging failures, and improving test cases, primarily on Anthropic AI projects.",
     icon: Code,
-    logo: {airdawg},
+    logo: airdawg,
     color: "secondary"
   }
 ];
@@ -34,14 +40,16 @@ const education = [
     date: "2023 - 2027",
     description: "Focusing on software engineering, data structures, and full-stack web technologies. CGPA: 8.75",
     icon: GraduationCap,
+    logo: lpu,
     color: "primary"
   },
   {
     title: "Senior Secondary (11th-12th)",
-    institution: "High School Name",
+    institution: "Public School Bal Bhawan, Bhiwani",
     date: "2020 - 2022",
     description: "Majored in Science and Mathematics. Percentage: 93%",
     icon: GraduationCap,
+    logo: psbb,
     color: "secondary"
   }
 ];
@@ -54,11 +62,11 @@ const achievements = [
 ];
 
 const certificates = [
-  "Full Stack Development in React and Node",
-  "Oracle Cloud Database Services 2025 Certified Professional",
-  "Deloitte Australia Data Analayst Certificate",
-  "Cloud Computing by IIT Kharagpur",
-  "Introduction to Hardware and Operating Systems by IBM"
+  { title: "Full Stack Development in React and Node", logo: lpu },
+  { title: "Oracle Cloud Database Services 2025 Certified Professional", logo: oracle },
+  { title: "Deloitte Australia Data Analayst Certificate", logo: deloitte },
+  { title: "Cloud Computing by IIT Kharagpur", logo: iitkgp },
+  { title: "Introduction to Hardware and Operating Systems by IBM", logo: ibm }
 ];
 
 const skills = [
@@ -116,8 +124,8 @@ const TimelineCard = ({ title, subtitle, company, institution, date, description
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6 relative z-10">
         <div className="flex items-start gap-4">
           {logo ? (
-            <div className="w-12 h-12 rounded-2xl overflow-hidden shrink-0 border border-border/50 bg-background">
-              <img src={logo} alt={`${displaySubtitle} logo`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            <div className="w-12 h-12 rounded-2xl overflow-hidden shrink-0 border border-border/50 bg-white dark:bg-white/90 flex items-center justify-center p-1">
+              <img src={logo} alt={`${displaySubtitle} logo`} className="w-full h-full object-contain text-[10px] text-center text-muted-foreground" referrerPolicy="no-referrer" />
             </div>
           ) : (
             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${colorMap[color].split(' ')[1]} ${textMap[color]}`}>
@@ -177,7 +185,7 @@ export default function About() {
           className="md:col-span-1 relative rounded-[2.5rem] overflow-hidden group min-h-[300px] border border-border"
         >
           <img 
-            src={img2}
+            src= {img2}
             alt="Portrait" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 
@@ -200,7 +208,7 @@ export default function About() {
           className="md:col-span-1 relative rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden group border border-primary/20"
         >
           <img 
-            src={img4}
+            src= {img4} 
             alt="Coding" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 
@@ -223,7 +231,7 @@ export default function About() {
           className="md:col-span-1 relative rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden group border border-secondary/20"
         >
           <img 
-            src={img3}
+            src= {img3}
             alt="Network" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 
@@ -266,9 +274,11 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 text-accent mb-6"
+            className="flex items-center justify-center gap-3 mb-6"
           >
-            <Zap size={32} />
+            <div className="w-8 h-[2px] bg-accent/60 rounded-full" />
+            <span className="text-accent font-bold uppercase tracking-[0.2em] text-xs">Skills</span>
+            <div className="w-8 h-[2px] bg-accent/60 rounded-full" />
           </motion.div>
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
@@ -449,10 +459,16 @@ export default function About() {
                 className="group flex items-center justify-between p-5 rounded-2xl bg-card border border-border hover:border-accent/30 hover:bg-accent/5 hover:shadow-md hover:shadow-accent/5 transition-all cursor-pointer"
               >
                 <div className="flex items-center gap-5">
-                  <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0 group-hover:scale-110 transition-transform">
-                    <BadgeCheck size={18} />
-                  </div>
-                  <p className="font-semibold text-foreground/90 text-lg">{cert}</p>
+                  {cert.logo ? (
+                    <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-border/50 bg-white dark:bg-white/90 flex items-center justify-center p-1 group-hover:scale-110 transition-transform">
+                      <img src={cert.logo} alt={`${cert.title} logo`} className="w-full h-full object-contain text-[8px] text-center text-muted-foreground" referrerPolicy="no-referrer" />
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0 group-hover:scale-110 transition-transform">
+                      <BadgeCheck size={18} />
+                    </div>
+                  )}
+                  <p className="font-semibold text-foreground/90 text-lg">{cert.title}</p>
                 </div>
                 <ExternalLink className="w-5 h-5 text-foreground/30 group-hover:text-accent transition-colors shrink-0" />
               </motion.a>

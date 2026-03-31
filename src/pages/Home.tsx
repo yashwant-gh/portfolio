@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import img1 from "../asset/img1.jpeg";
+import img9 from "../asset/img9.jpeg";
 
 export default function Home() {
   return (
@@ -36,7 +36,7 @@ export default function Home() {
           className="flex flex-wrap gap-4"
         >
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1yN3rEEFjwA4ovASQKnbqbfiys4LLMAp6/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-lg shadow-primary/30"
@@ -65,7 +65,7 @@ export default function Home() {
         
         {/* Profile Image */}
         <img
-          src={img1}
+          src={img9}
           alt="Profile"
           className="relative z-10 w-full h-auto aspect-[4/5] object-cover rounded-[2.5rem] shadow-2xl border-4 border-white dark:border-card"
           referrerPolicy="no-referrer"
